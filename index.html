@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, My Love!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to bottom right, #ffd6e8, #fff0f5);
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3em;
+      margin-top: 1em;
+      color: #ff69b4;
+    }
+    .message {
+      font-size: 1.2em;
+      margin: 1em auto;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    .love-button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 1em 2em;
+      font-size: 1em;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .love-button:hover {
+      background-color: #ff1493;
+    }
+    .hidden-message {
+      display: none;
+      margin-top: 2em;
+      font-size: 1.1em;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      color: #aa336a;
+      background-color: #fffafc;
+      padding: 2em;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+      text-align: left;
+      white-space: pre-wrap;
+    }
+    .flower {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      pointer-events: none;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    footer {
+      margin-top: 3em;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday, UNISHA!!!!! 🎂💕</h1>
+  <div class="message">
+    Today is all about you, the most beautiful soul I know. 
+  </div>
+
+  <button class="love-button" onclick="showMessage(); startFlowers()">Click for a Surprise 💌</button>
+  <div class="hidden-message" id="loveNote">
+    Dear Unisha,
+
+    Happy Birthday, wishing you the happiest birthday . Hope your day is as lovely as you are . 
+
+    Today I just want to take a moment to remind you , how truly special you are to me.
+
+    You deserve all the happiness in the world , not just today, but always .
+
+     I hope this birthday is filled with love , joy and a thousand reasons to smile.
+     
+    With all my heart,
+    Suyogya 💫
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <footer>
+    Made by shren prasai the great 
+  </footer>
+
+  <script>
+    function showMessage() {
+      document.getElementById('loveNote').style.display = 'block';
+    }
+
+    function startFlowers() {
+      for (let i = 0; i < 30; i++) {
+        let flower = document.createElement('div');
+        flower.className = 'flower';
+        flower.style.left = Math.random() * 100 + 'vw';
+        flower.style.animationDuration = (3 + Math.random() * 2) + 's';
+        flower.innerHTML = '🌸';
+        document.body.appendChild(flower);
+
+        setTimeout(() => {
+          flower.remove();
+        }, 5000);
+      }
+    }
+  </script>
+</body>
+</html>
