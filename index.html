@@ -2,133 +2,312 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday, My Love!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Indie+Flower&family=Parisienne&display=swap" rel="stylesheet" />
+  <script src="https://www.youtube.com/iframe_api"></script>
   <style>
     body {
       margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(to bottom right, #ffd6e8, #fff0f5);
-      color: #333;
+      padding: 0;
+      background: linear-gradient(270deg, #ffe0ec, #ffc0cb, #ffe0ec);
+      background-size: 600% 600%;
+      animation: gradientShift 12s ease infinite;
+      font-family: 'Indie Flower', cursive;
       text-align: center;
-      overflow-x: hidden;
+      overflow: hidden;
+      color: #e75480;
     }
+
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
     h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 3em;
-      margin-top: 1em;
-      color: #ff69b4;
+      font-family: 'Parisienne', cursive;
+      font-size: 3.5em;
+      margin-top: 80px;
+      text-shadow: 0 0 8px #ff69b4;
+      z-index: 3;
+      position: relative;
     }
-    .message {
-      font-size: 1.2em;
-      margin: 1em auto;
-      max-width: 600px;
-      line-height: 1.6;
-    }
-    .love-button {
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      padding: 1em 2em;
-      font-size: 1em;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .love-button:hover {
-      background-color: #ff1493;
-    }
-    .hidden-message {
-      display: none;
-      margin-top: 2em;
-      font-size: 1.1em;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
-      color: #aa336a;
-      background-color: #fffafc;
-      padding: 2em;
+
+    .letter {
+      position: absolute;
+      top: 160px;
+      left: 30px;
+      width: 260px;
+      background: rgba(255, 245, 250, 0.9);
+      padding: 20px;
       border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      font-size: 1em;
+      line-height: 1.6;
+      z-index: 3;
       text-align: left;
-      white-space: pre-wrap;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform: scaleY(0);
+      transform-origin: top;
+      opacity: 0;
     }
-    .flower {
-      position: fixed;
-      top: -50px;
-      font-size: 24px;
+
+    .letter.open {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+
+    .letter .signoff {
+      margin-top: 1.5em;
+      font-style: italic;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 130px;
+      left: 30px;
+      padding: 10px 20px;
+      background-color: #ffcce5;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Indie Flower', cursive;
+      font-size: 1em;
+      cursor: pointer;
+      z-index: 4;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .toggle-btn:hover {
+      background-color: #ffb3d9;
+    }
+
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
       pointer-events: none;
-      animation: fall 5s linear infinite;
+      user-select: none;
+      z-index: 1;
     }
-    @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-      }
+
+    .heart {
+      position: absolute;
+      color: #e75480;
+      font-size: 20px;
+      animation: float 5s linear infinite;
+      user-select: none;
     }
-    footer {
-      margin-top: 3em;
-      font-size: 0.9em;
-      color: #888;
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(1); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    .cake {
+      position: relative;
+      width: 174.2px;
+      height: 237.6px;
+      margin: 40px auto 60px;
+      filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+      z-index: 2;
+    }
+
+    .layer {
+      border-radius: 20px 20px 15px 15px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: inset 0 5px 10px rgba(255 255 255 / 0.4);
+    }
+
+    .layer.bottom {
+      bottom: 0;
+      width: 174.2px;
+      height: 63.36px;
+      background: linear-gradient(180deg, #f8a1c4 0%, #f57bb0 100%);
+      box-shadow: inset 0 10px 15px #ffcadd, 0 5px 8px rgba(0,0,0,0.2);
+    }
+
+    .layer.middle {
+      bottom: 63.36px;
+      width: 142.56px;
+      height: 55.44px;
+      background: linear-gradient(180deg, #fcb3d3 0%, #f484b9 100%);
+      box-shadow: inset 0 8px 12px #fddbe9, 0 3px 5px rgba(0,0,0,0.15);
+    }
+
+    .layer.top {
+      bottom: 118.8px;
+      width: 110.88px;
+      height: 47.52px;
+      background: linear-gradient(180deg, #fdd0e6 0%, #f59ac3 100%);
+      box-shadow: inset 0 6px 8px #ffe4f1, 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .frosting {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff0f6;
+      height: 12px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255,200,230,0.8);
+      filter: drop-shadow(0 0 2px rgba(255,150,200,0.4));
+      z-index: 5;
+    }
+
+    .frosting.bottom { bottom: 61.36px; width: 174.2px; }
+    .frosting.middle { bottom: 113.76px; width: 142.56px; }
+
+    .candle {
+      position: absolute;
+      width: 14px;
+      height: 40px;
+      background: repeating-linear-gradient(45deg, #f06, #f06 4px, #fff 4px, #fff 8px);
+      border-radius: 3px;
+      box-shadow: 0 2px 3px rgba(0,0,0,0.25);
+      animation: sway 3s ease-in-out infinite;
+      transform-origin: bottom center;
+      z-index: 10;
+    }
+
+    .candle:nth-child(1) { left: 55.1px; bottom: 165.2px; animation-delay: 0s; }
+    .candle:nth-child(2) { left: 83.6px; bottom: 175.6px; animation-delay: 0.4s; }
+    .candle:nth-child(3) { left: 115px; bottom: 165.2px; animation-delay: 0.7s; }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    .flame {
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      width: 16px;
+      height: 24px;
+      background: radial-gradient(circle at 50% 30%, #fff7b6, #fdd835 40%, #ff6f00 80%);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      filter: drop-shadow(0 0 10px #ffbb33);
+      transform: translateX(-50%);
+      animation: flicker 1.5s infinite ease-in-out;
+      z-index: 20;
+    }
+
+    .flame::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      width: 10px;
+      height: 16px;
+      background: radial-gradient(circle at 50% 30%, #fff, #ffeb3b 60%, transparent 90%);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      transform: translateX(-50%);
+      animation: flicker-inner 1.3s infinite ease-in-out;
+    }
+
+    @keyframes flicker {
+      0%, 100% { transform: translateX(-50%) scale(1) translateY(0); opacity: 1; }
+      50% { transform: translateX(-50%) scale(1.15) translateY(-4px); opacity: 0.8; }
+    }
+
+    @keyframes flicker-inner {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .tulip-gif {
+      position: absolute;
+      top: 120px;
+      right: 30px;
+      width: 160px;
+      height: auto;
+      z-index: 3;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: floatTulip 6s ease-in-out infinite;
+    }
+
+    @keyframes floatTulip {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
   </style>
 </head>
 <body>
-  <h1>Happy Birthday, UNISHA!!!!! 🎂💕</h1>
-  <div class="message">
-    Today is all about you, the most beautiful soul I know. 
+  <h1>Happy Birthday, Arpuuuuuu!</h1>
+
+  <button class="toggle-btn" onclick="toggleLetter()">💌</button>
+
+  <div class="letter" id="letter">
+    <p>Dear Arpuuuuuu,</p>
+    <p>arpuuuuuuuuuuuuuuuu happy birthdayyyy many many returns hope you get everything you deserve </p>
+    <p> you are the most beautiful person inside and out. </p>
+    <p class="signoff">With lots of love,<br/>Yours Shrennyy</p>
   </div>
 
-  <button class="love-button" onclick="showMessage(); startFlowers()">Click for a Surprise 💌</button>
-  <div class="hidden-message" id="loveNote">
-    Dear Unisha,
-
-    Happy Birthday, wishing you the happiest birthday . Hope your day is as lovely as you are . 
-
-    Today I just want to take a moment to remind you , how truly special you are to me.
-
-    You deserve all the happiness in the world , not just today, but always .
-
-     I hope this birthday is filled with love , joy and a thousand reasons to smile.
-     
-    With all my heart,
-    Suyogya 💫
+  <div class="cake" aria-label="Birthday cake with candles">
+    <div class="layer bottom"></div>
+    <div class="frosting bottom"></div>
+    <div class="layer middle"></div>
+    <div class="frosting middle"></div>
+    <div class="layer top"></div>
+    <div class="candle" style="left:55.1px; bottom:165.2px;"><div class="flame"></div></div>
+    <div class="candle" style="left:83.6px; bottom:175.6px; animation-delay: 0.4s;"><div class="flame"></div></div>
+    <div class="candle" style="left:115px; bottom:165.2px; animation-delay: 0.7s;"><div class="flame"></div></div>
   </div>
 
-  <audio autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <!-- Tulip GIF -->
+  <img src="https://media2.giphy.com/media/ce9KLArAA8KxsYCzS8/giphy.gif" alt="Tulip Bouquet"  class="tulip-gif" />
 
-  <footer>
-    
-  </footer>
+  <div class="hearts" id="hearts"></div>
+  <div id="player"></div>
 
   <script>
-    function showMessage() {
-      document.getElementById('loveNote').style.display = 'block';
+    const heartsContainer = document.getElementById('hearts');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 10 + 12) + 'px';
+      heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+      heart.innerHTML = '❤';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 300);
+
+    let audioStarted = false;
+    let player;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '0',
+        width: '0',
+        videoId: 'mfX7ynqrq2k',
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          modestbranding: 1,
+          rel: 0
+        }
+      });
     }
 
-    function startFlowers() {
-      for (let i = 0; i < 30; i++) {
-        let flower = document.createElement('div');
-        flower.className = 'flower';
-        flower.style.left = Math.random() * 100 + 'vw';
-        flower.style.animationDuration = (3 + Math.random() * 2) + 's';
-        flower.innerHTML = '🌸';
-        document.body.appendChild(flower);
+    function toggleLetter() {
+      const letter = document.getElementById('letter');
+      letter.classList.toggle('open');
 
-        setTimeout(() => {
-          flower.remove();
-        }, 5000);
+      if (!audioStarted && letter.classList.contains('open') && player) {
+        player.playVideo();
+        audioStarted = true;
       }
     }
   </script>
 </body>
 </html>
+
