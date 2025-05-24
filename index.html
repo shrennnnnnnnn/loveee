@@ -35,10 +35,8 @@
     }
 
     .letter {
-      position: absolute;
-      top: 160px;
-      left: 30px;
-      width: 260px;
+      margin: 20px auto;
+      width: 300px;
       background: rgba(255, 245, 250, 0.9);
       padding: 20px;
       border-radius: 20px;
@@ -64,9 +62,8 @@
     }
 
     .toggle-btn {
-      position: absolute;
-      top: 130px;
-      left: 30px;
+      display: inline-block;
+      margin: 0 auto 10px;
       padding: 10px 20px;
       background-color: #ffcce5;
       border: none;
@@ -74,8 +71,8 @@
       font-family: 'Indie Flower', cursive;
       font-size: 1em;
       cursor: pointer;
-      z-index: 4;
       box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      z-index: 4;
     }
 
     .toggle-btn:hover {
@@ -110,7 +107,7 @@
       position: relative;
       width: 174.2px;
       height: 237.6px;
-      margin: 40px auto 60px;
+      margin: 40px auto 20px;
       filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
       z-index: 2;
     }
@@ -219,27 +216,21 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0.7; }
     }
-
-    .tulip-gif {
-      position: absolute;
-      top: 120px;
-      right: 30px;
-      width: 160px;
-      height: auto;
-      z-index: 3;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      animation: floatTulip 6s ease-in-out infinite;
-    }
-
-    @keyframes floatTulip {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
   </style>
 </head>
 <body>
   <h1>Happy Birthday, Arpuuuuuu!</h1>
+
+  <div class="cake" aria-label="Birthday cake with candles">
+    <div class="layer bottom"></div>
+    <div class="frosting bottom"></div>
+    <div class="layer middle"></div>
+    <div class="frosting middle"></div>
+    <div class="layer top"></div>
+    <div class="candle" style="left:55.1px; bottom:165.2px;"><div class="flame"></div></div>
+    <div class="candle" style="left:83.6px; bottom:175.6px;"><div class="flame"></div></div>
+    <div class="candle" style="left:115px; bottom:165.2px;"><div class="flame"></div></div>
+  </div>
 
   <button class="toggle-btn" onclick="toggleLetter()">💌</button>
 
@@ -249,20 +240,6 @@
     <p> you are the most beautiful person inside and out. </p>
     <p class="signoff">With lots of love,<br/>Yours Shrennyy</p>
   </div>
-
-  <div class="cake" aria-label="Birthday cake with candles">
-    <div class="layer bottom"></div>
-    <div class="frosting bottom"></div>
-    <div class="layer middle"></div>
-    <div class="frosting middle"></div>
-    <div class="layer top"></div>
-    <div class="candle" style="left:55.1px; bottom:165.2px;"><div class="flame"></div></div>
-    <div class="candle" style="left:83.6px; bottom:175.6px; animation-delay: 0.4s;"><div class="flame"></div></div>
-    <div class="candle" style="left:115px; bottom:165.2px; animation-delay: 0.7s;"><div class="flame"></div></div>
-  </div>
-
-  <!-- Tulip GIF -->
-  <img src="https://media2.giphy.com/media/ce9KLArAA8KxsYCzS8/giphy.gif" alt="Tulip Bouquet"  class="tulip-gif" />
 
   <div class="hearts" id="hearts"></div>
   <div id="player"></div>
@@ -310,4 +287,3 @@
   </script>
 </body>
 </html>
-
