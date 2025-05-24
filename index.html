@@ -15,8 +15,8 @@
       animation: gradientShift 12s ease infinite;
       font-family: 'Indie Flower', cursive;
       text-align: center;
-      overflow: hidden;
       color: #e75480;
+      /* Removed overflow:hidden to allow scrolling */
     }
 
     @keyframes gradientShift {
@@ -36,8 +36,9 @@
 
     .letter {
       margin: 20px auto;
-      width: 300px;
-      background: rgba(255, 245, 250, 0.9);
+      max-width: 90%;
+      width: 360px;
+      background: rgba(255, 245, 250, 0.95);
       padding: 20px;
       border-radius: 20px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.2);
@@ -45,15 +46,25 @@
       line-height: 1.6;
       z-index: 3;
       text-align: left;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      transform: scaleY(0);
-      transform-origin: top;
-      opacity: 0;
+      display: none; /* hidden by default */
+      max-height: 300px;
+      overflow-y: auto;
+      /* Optional: smooth scrollbar */
+      scrollbar-width: thin;
+      scrollbar-color: #ff69b4 transparent;
+    }
+
+    /* For Webkit browsers scrollbar style */
+    .letter::-webkit-scrollbar {
+      width: 6px;
+    }
+    .letter::-webkit-scrollbar-thumb {
+      background-color: #ff69b4;
+      border-radius: 3px;
     }
 
     .letter.open {
-      transform: scaleY(1);
-      opacity: 1;
+      display: block; /* show when toggled */
     }
 
     .letter .signoff {
